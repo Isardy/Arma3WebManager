@@ -13,10 +13,28 @@
 			<h1>Arma 3 Web Manager</h1>
 		</header>
 		<section>
-			<?php include "login.php";?>
+			<?php
+				if (isset($_GET['page']))
+				{
+					$page = $_GET['page'];
+					switch($page)
+					{
+						case 'login':
+							include('login.php');
+							break;
+						case 'auth':
+							include('auth.php');
+							break;
+						case 'server':
+							include('server.php');
+							break;
+					}
+				}
+				else
+				{
+					include('login.php');
+				}
+			?>
 		</section>
-
-
-
 	</body>
 </html>

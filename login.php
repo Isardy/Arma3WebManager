@@ -1,5 +1,5 @@
 <div class="loginform cf">
-	<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+	<form name="login" action="auth.php" method="post" accept-charset="utf-8">
 		<ul>
 			<li>
 				<label for="username">Username</label>
