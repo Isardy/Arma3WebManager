@@ -10,5 +10,4 @@
 	{
 	    echo "Database error : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 	}
-	echo $mysqli->host_info . "\n";
 ?>

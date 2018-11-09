@@ -7,7 +7,6 @@
 		<meta name="author" content="Isardy">
 		<link rel="stylesheet" href="style.css">
 	</head>
-
 	<body>
 		<header class="index_header">
 			<h1>Arma 3 Web Manager</h1>
