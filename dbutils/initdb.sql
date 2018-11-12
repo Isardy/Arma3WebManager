@@ -16,7 +16,7 @@ CREATE TABLE `paths` (
   `mods` varchar(255) COLLATE 'utf8_general_ci' NOT NULL
 ) COLLATE 'utf8_general_ci';
 
-ATE TABLE `mods` (
+CREATE TABLE `mods` (
   `id` varchar(16) COLLATE 'utf8_general_ci' NOT NULL,
   `title` varchar(255) COLLATE 'utf8_general_ci' NOT NULL,
   `last_update` datetime NOT NULL,

@@ -71,18 +71,24 @@
 				<th>Title</th>
 				<th>Last update</th>
 				<th>Latest update</th>
+				<th class="actions">Actions</th>
 			</tr>
 
 			<?php
 				if ($list_mods = mysqli_query($mysqli, $sql_mods)){
 					while ($obj = mysqli_fetch_object($list_mods)){
+
 						echo "<tr>";
 						echo "<td>".$obj->id."</td>";
 						echo "<td>".$obj->title."</td>";
 						echo "<td>".$obj->last_update."</td>";
-						echo "<td>".$obj->latest_update."</td>";
+						echo "<td";
+						if (!($obj->last_update == $obj->latest_update)){
+							echo " bgcolor=red";
+						}
+						echo ">".$obj->latest_update."</td>";
+						echo "<td><a href=\"#\" class=\"action_buttons\">Update</a><a href=\"#\" class=\"action_buttons\">Remove</a>";
 						echo "</tr>";
-
 					}
 				}
 				mysqli_free_result($list_paths);
@@ -90,5 +96,3 @@
 		</table>
 	</form>
 </div>
-
-
