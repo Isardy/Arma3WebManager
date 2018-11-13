@@ -34,7 +34,7 @@
 				<input type="password" name="password" placeholder="Password" value="<?php echo $steam_password;?>" required>
 			</li>
 			<li>
-				<input type="submit" value="Update">
+				<input class="submit" type="submit" value="Update">
 			</li>
 		</ul>
 	</form>
@@ -57,42 +57,47 @@
 			</li>
 			<li>Paths to steamcmd and arma3server must be absolute. Path to mods directory is relative from arma3server.</li>
 			<li>
-				<input type="submit" value="Update">
+				<input class="submit" type="submit" value="Update">
 			</li>
 		</ul>
 	</form>
 </div>
 <div class="mods cf">
 	<h2>Mods</h2>
-	<form name="mods_form" action="update_mods.php" method="post" accept-charset="utf-8">
-		<table>
-			<tr>
-				<th>Workshop id</th>
-				<th>Title</th>
-				<th>Last update</th>
-				<th>Latest update</th>
-				<th class="actions">Actions</th>
-			</tr>
+	<table>
+		<tr>
+			<th>Workshop id</th>
+			<th>Title</th>
+			<th>Last update</th>
+			<th>Latest update</th>
+			<th class="actions">Actions</th>
+		</tr>
 
-			<?php
-				if ($list_mods = mysqli_query($mysqli, $sql_mods)){
-					while ($obj = mysqli_fetch_object($list_mods)){
+		<?php
+			if ($list_mods = mysqli_query($mysqli, $sql_mods)){
+				while ($obj = mysqli_fetch_object($list_mods)){
 
-						echo "<tr>";
-						echo "<td>".$obj->id."</td>";
-						echo "<td>".$obj->title."</td>";
-						echo "<td>".$obj->last_update."</td>";
-						echo "<td";
-						if (!($obj->last_update == $obj->latest_update)){
-							echo " bgcolor=red";
-						}
-						echo ">".$obj->latest_update."</td>";
-						echo "<td><a href=\"#\" class=\"action_buttons\">Update</a><a href=\"#\" class=\"action_buttons\">Remove</a>";
-						echo "</tr>";
+					echo "<tr>";
+					echo "<td>".$obj->id."</td>";
+					echo "<td>".$obj->title."</td>";
+					echo "<td>".$obj->last_update."</td>";
+					echo "<td";
+					if (!($obj->last_update == $obj->latest_update)){
+						echo " bgcolor=red";
 					}
+					echo ">".$obj->latest_update."</td>";
+					echo "<td><a href=\"#\" class=\"action_buttons\">Update</a><a href=\"#\" class=\"action_buttons\">Remove</a>";
+					echo "</tr>";
 				}
-				mysqli_free_result($list_paths);
-			?>
-		</table>
-	</form>
+			}
+			mysqli_free_result($list_paths);
+		?>
+		<form name="mods_form" action="add_mod.php" method="post" accept-charset="utf-8">
+			<td><input type="text" name="add_id" placeholder="Workshop ID"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><input type="submit" class="add_mod_button" value="Add"></td>
+		</form>
+	</table>
 </div>

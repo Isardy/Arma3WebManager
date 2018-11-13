@@ -9,7 +9,7 @@
 				<label for="password">Password</label>
 				<input type="password" name="password" placeholder="password" required></li>
 				<li>
-					<input type="submit" value="Login">
+					<input class="submit" type="submit" value="Login">
 				</li>
 			</ul>
 		</form>
