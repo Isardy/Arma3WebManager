@@ -26,6 +26,8 @@
 		}
 		else
 		{
+            session_start();
+            $_SESSION['login'] = $username;
 			header('Location: index.php?page=server');
 		}   	
     } 

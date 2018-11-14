@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -35,5 +36,12 @@
 				}
 			?>
 		</section>
+		<footer>
+			<?php
+				if(!(empty($_SESSION['login']))){
+					echo "<a class='logout_link' href='logout.php'>Log Out</a>";
+				}
+			?>
+		</footer>
 	</body>
 </html>

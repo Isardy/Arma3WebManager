@@ -1,4 +1,10 @@
 <?php
+	session_start();
+	if(empty($_SESSION['login'])){
+		header('Location: index.php');
+		exit();
+	}
+
 	require('db.php');
 	$sql_steam_username = "SELECT username, password FROM steam_creds";
 	$sql_paths = "SELECT steamcmd, arma, mods FROM paths";
@@ -92,8 +98,8 @@
 			}
 			mysqli_free_result($list_paths);
 		?>
-		<form name="mods_form" action="add_mod.php" method="post" accept-charset="utf-8">
-			<td><input type="text" name="add_id" placeholder="Workshop ID"></td>
+		<form name="mods_form" action="addmod.php" method="post" accept-charset="utf-8">
+			<td><input type="text" name="mod_id" placeholder="Workshop ID" required></td>
 			<td></td>
 			<td></td>
 			<td></td>
