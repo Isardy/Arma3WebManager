@@ -3,7 +3,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE user='".$mysqli->real_escape_string($username)."'";
+    $sql = "SELECT * FROM users WHERE user='".($username)."'";
     //username check
     $query_1 = $mysqli->query($sql);
 

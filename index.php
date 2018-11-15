@@ -36,12 +36,12 @@
 				}
 			?>
 		</section>
-		<footer>
-			<?php
-				if(!(empty($_SESSION['login']))){
-					echo "<a class='logout_link' href='logout.php'>Log Out</a>";
-				}
-			?>
-		</footer>
+		<?php
+			if(!(empty($_SESSION['login']))){
+				echo "<footer>";
+				echo "<a class='logout_link' href='logout.php'>Log Out</a>";
+				echo "</footer>";
+			}
+		?>
 	</body>
 </html>

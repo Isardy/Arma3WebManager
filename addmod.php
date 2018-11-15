@@ -6,10 +6,23 @@
 	}
 	require('db.php');
 	$modid = $_POST['mod_id'];
-	/*header('Location: index.php?page=server');*/
-	/*$command = "./scripts/getModInfo.py " . $modid;
-	echo $command;
+	
+	$command = "./scripts/getModInfo.py " . $modid;
 	$output = shell_exec(escapeshellcmd($command));
-	echo $output;*/
-	echo shell_exec("./scripts/getModInfo.py sdsd sdsd");
+	$modinfo = explode(',', $output);
+
+	$id = $modinfo[0];
+	$title = $modinfo[1];
+	$update = $modinfo[2];
+
+	$values = "'".$id."', '".$title."', '".trim($update)."', '".trim($update)."'";
+
+	$sql = "INSERT INTO mods VALUES (" . $values . ")";
+	if (mysqli_query($mysqli, $sql)) {
+	    header("Location: index.php?page=server");
+		exit();
+	} else {
+	    echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
+	    mysqli_close($mysqli);
+	}
 ?>

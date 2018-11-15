@@ -33,11 +33,11 @@
 		<ul>
 			<li>
 				<label for="username">Username</label>
-				<input type="text" name="username" placeholder="Username" value="<?php echo $steam_username;?>" required>
+				<input type="text" name="username" placeholder="Username" required>
 			</li>
 			<li>
 				<label for="password">Password</label>
-				<input type="password" name="password" placeholder="Password" value="<?php echo $steam_password;?>" required>
+				<input type="password" name="password" placeholder="********" required>
 			</li>
 			<li>
 				<input class="submit" type="submit" value="Update">
@@ -51,15 +51,15 @@
 		<ul>
 			<li>
 				<label for="username">steamcmd</label>
-				<input type="text" name="steamcmd" placeholder="/path/to/steamcmd" value="<?php echo $steamcmd_path;?>" required>
+				<input type="text" name="steamcmd" placeholder="/path/to/steamcmd" required>
 			</li>
 			<li>
 				<label for="arma">arma3server</label>
-				<input type="text" name="arma" placeholder="/path/to/arma3server" value="<?php echo $arma_path;?>" required>
+				<input type="text" name="arma" placeholder="/path/to/arma3server" required>
 			</li>
 			<li>
 				<label for="arma">mods</label>
-				<input type="text" name="mods" placeholder="/path/to/mods" value="<?php echo $mods_path;?>" required>
+				<input type="text" name="mods" placeholder="/path/to/mods" required>
 			</li>
 			<li>Paths to steamcmd and arma3server must be absolute. Path to mods directory is relative from arma3server.</li>
 			<li>
@@ -92,7 +92,7 @@
 						echo " bgcolor=red";
 					}
 					echo ">".$obj->latest_update."</td>";
-					echo "<td><a href=\"#\" class=\"action_buttons\">Update</a><a href=\"#\" class=\"action_buttons\">Remove</a>";
+					echo "<td><a href=\"#\" class=\"action_buttons\">Update</a><a href=\"removemod.php?mod_id=$obj->id\" class=\"action_buttons\">Remove</a>";
 					echo "</tr>";
 				}
 			}
