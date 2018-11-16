@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/python3    $sql = "SELECT * FROM users WHERE user='".$username."'";
+    echo $sql;
 
 import sys
 import requests
